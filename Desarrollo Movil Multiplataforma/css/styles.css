@@ -1,0 +1,9 @@
+.card-img-top-card {
+    min-height: 230px;
+}
+
+@media (max-width: 575px) {
+    .card-top-img {
+        min-width: auto;
+    }
+}
