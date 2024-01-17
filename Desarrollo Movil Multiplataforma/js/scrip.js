@@ -8,10 +8,10 @@
 //var: variable global que puede ser accedida desde cualquier parte del código
 
 (() => {
-    //funciones
+    // Funciones
     function suma(numero1, numero2) {
         return numero1 + numero2;
-    };
+    }
 
     const resta = function (numero1, numero2) {
         return numero1 - numero2;
@@ -23,19 +23,17 @@
 
     const division = (numero1, numero2) => numero1 / numero2;
 
+})();
 
+(() => {
+    // Objetos, arreglos y listas
 
- })();
+    const frutas = ['Platano', 'Sandia', 'Mango', 22, true, 50.5];
 
- (() => {
-    //objetos-arreglos y listas
-
-    const frutas = ['Platano','Sandia','Mango',22,true,50.5]
-
-    //- indix 0, 1, 2, 3, 4, 5
-    //- length = 6
+    // Índices: 0, 1, 2, 3, 4, 5
+    // Longitud: 6
     console.log(frutas);
-    frutas.forEach(element, index) =>{
+    frutas.forEach((element, index) => {
         console.log("fruta: ", index + ' ' + element);
         console.log(`Frutas: ${index} ${element}`);
     });
@@ -59,16 +57,47 @@
     };
     console.log(person.socialnetworks.instagram);
 
-    //arreglos de lista
-    const users  = [person,person2];
-    users.forEach(({name,lastName, address:{street}, socialnetworks:{instagram})) =>{
-        console.log(`Usuario indice  ${index} tus datos son: `);
+    // Arreglos de lista
+    const users = [person, person2];
+    users.forEach(({ name, lastName, address: { street }, socialnetworks: { instagram } }) => {
+        console.log(`Usuario indice ${index} tus datos son: `);
         console.log(`Nombre completo: ${element.name}`);
-        console.log(`Redes sociales: ${element.socialnetworks.instagram}`)
-
+        console.log(`Redes sociales: ${element.socialnetworks.instagram}`);
     });
-    
 
+})();
 
+(() => {
+    const teams = [];
+    const chivas = {
+        name: 'Chivas',
+        points: 10,
+        league: 'MX',
+        match: [
+            {
+                team: 'Santos',
+                points: 12,
+                date:'2024/01/16'
+            },
+            {
+                team: 'America',
+                points: 23,
+                date:'2024/01/24'
+            }
+        ],
+        country: 'Mexico'
+    };
+})();
 
- })();
+const {name, points, league, country, match} = chivas;
+match.forEach(({team, poi, date}, index) => {
+    console.log('# Partidos: ', match.length);
+    console.log(`${name} vs ${team} en el dia ${Date(date).getDay()} del mes
+     ${new Date(date).getMonth()} ${points > poi ? `${name} tiene mas puntos`: `${team} tiene mas puntos`}`)
+
+     console.log("poi", poi);
+     console.log("poi", points);
+     console.log(new Date(date));
+})
+
+ 
