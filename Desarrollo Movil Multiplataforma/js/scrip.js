@@ -58,12 +58,16 @@
     console.log(person.socialnetworks.instagram);
 
     // Arreglos de lista
-    const users = [person, person2];
-    users.forEach(({ name, lastName, address: { street }, socialnetworks: { instagram } }) => {
-        console.log(`Usuario indice ${index} tus datos son: `);
-        console.log(`Nombre completo: ${element.name}`);
-        console.log(`Redes sociales: ${element.socialnetworks.instagram}`);
-    });
+const users = [person];
+users.forEach((element, index) => {
+    const { name, lastName, address: { street }, socialnetworks: { instagram } } = element;
+
+    console.log(`Usuario indice ${index} tus datos son: `);
+    console.log(`Nombre completo: ${name} ${lastName}`);
+    console.log(`Dirección: ${street}`);
+    console.log(`Instagram: ${instagram}`);
+});
+
 
 })();
 
@@ -89,15 +93,72 @@
     };
 })();
 
-const {name, points, league, country, match} = chivas;
-match.forEach(({team, poi, date}, index) => {
+// Definición y asignación de la variable chivas
+const chivas = {
+    name: "Chivas",
+    points: 20,
+    league: "Liga MX",
+    country: "México",
+    match: [
+      { team: "Equipo1", poi: 15, date: "2024-01-18" },
+      { team: "Equipo2", poi: 18, date: "2024-01-20" },
+      // ... más partidos
+    ],
+  };
+  
+  // Destructuración y uso de las propiedades
+  const { name, points, league, country, match } = chivas;
+  
+  match.forEach(({ team, poi, date }, index) => {
     console.log('# Partidos: ', match.length);
-    console.log(`${name} vs ${team} en el dia ${Date(date).getDay()} del mes
-     ${new Date(date).getMonth()} ${points > poi ? `${name} tiene mas puntos`: `${team} tiene mas puntos`}`)
+    console.log(
+      `${name} vs ${team} en el día ${new Date(date).getDay()} del mes ${
+        new Date(date).getMonth()
+      } ${points > poi ? `${name} tiene más puntos` : `${team} tiene más puntos`}`
+    );
+  
+    console.log("poi", poi);
+    console.log("points", points);
+    console.log(new Date(date));
+  });
+  
 
-     console.log("poi", poi);
-     console.log("poi", points);
-     console.log(new Date(date));
-})
+// getUserById
+
+
+
+/* 1 *
+   2 alias estorban
+   3 where no es necesario
+   4 inner join person p ON us.person_id = p.id mal estu
+   */
+
+
+   (() => {
+    const usuario = {
+        id: 0,
+        usuario:'',
+        contrasenia: '',
+        status:'',
+        cuantas: {
+            numeroCuenta:"",
+            saldo:0,
+        },
+        persona: {
+            id:0,
+            nombre:"",
+            apellidos:"",
+            direccion: {
+                latitud: "",
+                longitud: '',
+                calle: '',
+                colonia: ''
+            },
+            telefono: '',
+            sexo:''
+        },
+    };
+
+   })();
 
  
